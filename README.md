@@ -1,27 +1,45 @@
-# La tarea de 17 ejercicios, de funcional
+# La tarea de 17 ejercicios, de programación funcional, Paradigmas.
 
-esto es un proyecto que tiene 17 puntos de programacion en java, hay ejercicios de ventas, descuentos, 
+Esto es una tareita que tiene 17 puntos de programacion en java, hay ejercicios de ventas, descuentos, 
 notas, vectores, matrices y funciones usando streams, esta sencillo, dentro de lo que cabe, para mí es hermoso.
 
 
 
-## ¿Pero que es un stream? 🤔
+## ¿Pero que es un stream? 
 
 un stream en java es como una forma de trabajar con listas o arreglos de manera mejor, sin tener que usar muchos for
 se pueden usar para filtrar datos, transformar cosas, sumar, etc...
+muy grosso modo, como cuando se maneja un SQL, aunque ustedes jamas han visto como se maneja, piensen esto como un excel. 
+es mas preciso así.
 
 Esto es como cuando conocí por primera vez los ArrayList, el tema, es que es procedimental, 
 como un algoritmo paso a paso, pero con un gran volúmen de datos.
 
-ejemplo de stream en java:
+Ejemplo de stream en java:
+Un vendedor recibe un sueldo base más un 10% extra por comisión de sus ventas, el vendedor desea saber cuánto dinero obtendrá por concepto de 
+comisiones por las tres ventas que realiza en el mes y el total que recibirá en el mes tomando en cuenta su sueldo base y comisiones.
 
 ```java
-List<Integer> lista = Arrays.asList(1, 2, 3, 4, 5);
-List<Integer> dobles = lista.stream()
-    .map(n -> n * 2)  // Ten en cuenta la función map, Maptodouble, MaptoInt son y seran muy usados durante sus programaciones.
-    .collect(Collectors.toList());
+import java.util.Arrays;
+import java.util.List;
 
-System.out.println(dobles); // imprime [2, 4, 6, 8, 10]
+private static List<Integer> nuevalista(){
+    return Arrays.asList(100,200,300);  // Aquí creamos una lista, con las ventas, que hizo el vendedor. el vendio 3 productos con ese respectivo valor.
+}
+        public void main() {
+        double sueldobase = 500;  //Dice que recibe un sueldo base
+        List<Integer> Ventas = nuevalista(); // IMPORTANTE, MANEJAR POR SEPARADO LAS LISTAS.
+
+            double comisiones = Ventas.stream()// Convierte la lista de ventas en un stream
+                    .mapToDouble(ventaporcentaje -> ventaporcentaje * 0.1)
+/* obtiene el 10% de cada venta, por que ahí dice que es por comisión de sus ventas, quizas varie un poco, y podemos discutir si se refiere a un 10 por cada una o a el total.*/
+                    .sum(); // suma el 10% de todas las ventas, para así, quedar una comisión.
+
+            double sueldototal = sueldobase + comisiones; 
+
+            System.out.println("Comisiones $: " + comisiones);
+            System.out.println("Sueldo Total $:" + sueldototal);
+        }
 ```
 
 asi no se usa un for clasico, todo se hace en cadena y queda mas limpio. mas Zas 💎💎
@@ -49,9 +67,9 @@ asi no se usa un for clasico, todo se hace en cadena y queda mas limpio. mas Zas
 - [ ] 16. contar numeros positivos en una lista
 - [ ] 17. eliminar numeros menores o iguales a un numero
 
-## saludos a la gente de zona, a mi mamá, a mi papá, a mi gato, a mi gata, a mi pajaro, a el señor de la esquina. 🔥
-
-"""Me levanto bien tarde, siempre valiendo madres
-sin salir de mi cuarto, viendo monitos chinos
-me desvelo a lo pendejo, no mas valiendo queso
-tragando y durmiendo, todo el día, soy feliz"""
+## Saludos a la gente de zona, a mi mamá, a mi papá, a mi gato, a mi gata, a mi pajaro, a el señor de la esquina. 🔥
+## Y recuerden:
+- Me levanto bien tarde, siempre valiendo madres
+- sin salir de mi cuarto, viendo monitos chinos
+- me desvelo a lo pendejo, no mas valiendo queso
+- tragando y durmiendo, todo el día, soy feliz
