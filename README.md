@@ -16,7 +16,7 @@ Esto es como cuando conocí por primera vez los ArrayList, el tema, es que es pr
 como un algoritmo paso a paso, pero con un gran volúmen de datos.
 
 Ejemplo de stream en java:
-Un vendedor recibe un sueldo base más un 10% extra por comisión de sus ventas, el vendedor desea saber cuánto dinero obtendrá por concepto de 
+- Un vendedor recibe un sueldo base más un 10% extra por comisión de sus ventas, el vendedor desea saber cuánto dinero obtendrá por concepto de 
 comisiones por las tres ventas que realiza en el mes y el total que recibirá en el mes tomando en cuenta su sueldo base y comisiones.
 
 ```java
