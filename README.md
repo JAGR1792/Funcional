@@ -32,7 +32,7 @@ private static List<Integer> nuevalista(){
 
             double comisiones = Ventas.stream()// Convierte la lista de ventas en un stream
                     .mapToDouble(ventaporcentaje -> ventaporcentaje * 0.1)
-/* obtiene el 10% de cada venta, por que ahí dice que es por comisión de sus ventas, quizas varie un poco, y podemos discutir si se refiere a un 10 por cada una o a el total.*/
+/* obtiene el 10% de cada venta, por que ahí dice que es por comisión de sus ventas*/
                     .sum(); // suma el 10% de todas las ventas, para así, quedar una comisión.
 
             double sueldototal = sueldobase + comisiones; 
