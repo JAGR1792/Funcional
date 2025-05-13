@@ -42,7 +42,7 @@ private static List<Integer> nuevalista(){
         }
 ```
 
-asi no se usa un for clasico, todo se hace en cadena y queda mas limpio. mas Zas 💎💎
+así no se usa un for clasico, todo se hace en cadena y queda mas limpio, más Zas 💎💎
 
 ## lista de ejercicios
 
