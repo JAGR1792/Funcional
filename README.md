@@ -46,7 +46,7 @@ asi no se usa un for clasico, todo se hace en cadena y queda mas limpio. mas Zas
 
 ## lista de ejercicios
 
-### hechos ✅
+### hechos Python✅
 - [x] 1. vendedor sueldo y comision
 - [x] 2. descuento del 15%
 - [x] 3. nota final de algoritmos
@@ -56,11 +56,31 @@ asi no se usa un for clasico, todo se hace en cadena y queda mas limpio. mas Zas
 - [x] 7. 15 valores en orden inverso
 - [x] 8. mayor valor en 20 numeros
 - [x] 9. vector de 16 partido en dos
+- [x] 10. matriz 4x5 y buscar valor
+- [x] 11. 3 vectores y pasarlos a matriz 3x10
+- [x] 12. 25 alumnos nombre apellido y 4 notas
+- [x] 13. contar veces que aparece x usando filter y reduce
+- [x] 14. dividir entre 2 los pares de una lista
+- [x] 15. devolver numeros que esten en un rango
+- [x] 16. contar numeros positivos en una lista
+- [x] 17. eliminar numeros menores o iguales a un numero
+### faltan Python❎
 
-### faltan 
-- [ ] 10. matriz 4x5 y buscar valor
+### hechos Java✅
+- [x] 1. vendedor sueldo y comision
+- [x] 2. descuento del 15%
+- [x] 3. nota final de algoritmos
+- [x] 4. porcentaje hombres mujeres
+- [x] 5. edad de una persona
+- [x] 6. vector con mayor y menor
+- [x] 7. 15 valores en orden inverso
+- [x] 8. mayor valor en 20 numeros
+- [x] 9. vector de 16 partido en dos
+- [x] 10. matriz 4x5 y buscar valor
+- [x] 12. 25 alumnos nombre apellido y 4 notas
+
+### faltan Java ❎
 - [ ] 11. 3 vectores y pasarlos a matriz 3x10
-- [ ] 12. 25 alumnos nombre apellido y 4 notas
 - [ ] 13. contar veces que aparece x usando filter y reduce
 - [ ] 14. dividir entre 2 los pares de una lista
 - [ ] 15. devolver numeros que esten en un rango
