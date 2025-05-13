@@ -89,7 +89,7 @@ asi no se usa un for clasico, todo se hace en cadena y queda mas limpio. mas Zas
 
 ## Saludos a la gente de zona, a mi mamá, a mi papá, a mi gato, a mi gata, a mi pajaro, a el señor de la esquina. a y pa santiago que probablemente leera este Readme, saludos a mi gente de yutuf 🔥
 ## Y recuerden:
-- Me levanto bien tarde, siempre valiendo madres
-- sin salir de mi cuarto, viendo monitos chinos
-- me desvelo a lo pendejo, no mas valiendo queso
-- tragando y durmiendo, todo el día, soy feliz
+Me levanto bien tarde, siempre valiendo madres
+sin salir de mi cuarto, viendo monitos chinos
+me desvelo a lo pendejo, no mas valiendo queso
+tragando y durmiendo, todo el día, soy feliz
