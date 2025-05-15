@@ -1,19 +1,22 @@
 package Java;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import java.util.stream.Collectors; 
 
 public class Punto11 {
     public static void main(String[] args) {
-        int[] vector1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int[] vector2 = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-        int[] vector3 = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+        int[] vector1 = IntStream.rangeClosed(1, 10).toArray();
+        int[] vector2 = IntStream.rangeClosed(11, 20).toArray();
+        int[] vector3 = IntStream.iterate(21, n -> n + 1).limit(10).toArray();
+        int[][] matriz = Stream.of(vector1, vector2, vector3).toArray(int[][]::new);
 
-        int[][] matriz = {vector1, vector2, vector3};
-
-        // Imprimir matriz
-        Arrays.stream(matriz).forEach(fila -> {
-            Arrays.stream(fila).forEach(num -> System.out.print(num + " "));
-            System.out.println();
-        });
+        // Imprimir la matriz 
+        Arrays.stream(matriz)
+              .map(fila -> Arrays.stream(fila)
+                              .mapToObj(num -> String.format("%2d", num))
+                              .collect(Collectors.joining(" ")))
+              .forEach(System.out::println);
     }
 }
