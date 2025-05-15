@@ -77,15 +77,16 @@ así no se usa un for clasico, todo se hace en cadena y queda mas limpio, más Z
 - [x] 8. mayor valor en 20 numeros
 - [x] 9. vector de 16 partido en dos
 - [x] 10. matriz 4x5 y buscar valor
+- [x] 11. 3 vectores y pasarlos a matriz 3x10
 - [x] 12. 25 alumnos nombre apellido y 4 notas
+- [x] 13. contar veces que aparece x usando filter y reduce
+- [x] 14. dividir entre 2 los pares de una lista
+- [x] 15. devolver numeros que esten en un rango
+- [x] 16. contar numeros positivos en una lista
+- [x] 17. eliminar numeros menores o iguales a un numero
 
 ### faltan Java ❎
-- [ ] 11. 3 vectores y pasarlos a matriz 3x10
-- [ ] 13. contar veces que aparece x usando filter y reduce
-- [ ] 14. dividir entre 2 los pares de una lista
-- [ ] 15. devolver numeros que esten en un rango
-- [ ] 16. contar numeros positivos en una lista
-- [ ] 17. eliminar numeros menores o iguales a un numero
+
 
 ## Saludos a la gente de zona, a mi mamá, a mi papá, a mi gato, a mi gata, a mi pajaro, a el señor de la esquina. ah y pa santiago que probablemente leera este Readme, saludos a mi gente de yutuf 🔥
 ## Y recuerden:
