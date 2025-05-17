@@ -1,11 +1,11 @@
-"""
-Punto 1: Un vendedor recibe un sueldo base más un 10% extra por comisión de sus ventas,
-el vendedor desea saber cuánto dinero obtendrá por concepto de comisiones por las tres ventas
-que realiza en el mes y el total que recibirá en el mes tomando en cuenta su sueldo base y comisiones."""
 from functools import reduce
-lista=[100,200,300]
+#Ventas del vendedor
+ventas=[100,200,300]
 sueldoBase=500
-comisiones=reduce(lambda acumulador=0,elemento=0:acumulador+elemento,lista)*0.1
-print(comisiones)
+# Se suman las ventas y se obtiene el 10% para comisión
+comisiones=reduce(lambda acumulador=0,elemento=0:acumulador+elemento,ventas)*0.1
+# Se calcula el sueldo total sumando el sueldo base y las comisiones
 sueldoTotal=sueldoBase+comisiones
-print(sueldoTotal)
+# Se imprimen las comisiones y el sueldo total
+print(f"Comisión: {comisiones}")
+print(f"Sueldo total: {sueldoTotal}")
