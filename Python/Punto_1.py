@@ -1,6 +1,7 @@
 from functools import reduce
-#Ventas del vendedor
-ventas=list(map(lambda elemento:int(input("Ingrese su venta: ")),range(3)))
+#Ventas del vendedor, ingresadas por el vendedor
+ventas=list(map(lambda elemento:int(input(f"Ingrese su venta {elemento+1}: ")),range(3)))
+# Sueldo base del vendedor, que el vendedor no puede modificar
 sueldoBase=15000
 # Se suman las ventas y se obtiene el 10% para comisión
 comisiones=reduce(lambda acumulador=0,elemento=0:acumulador+elemento,ventas)*0.1
