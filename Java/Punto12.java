@@ -1,55 +1,61 @@
 package Java;
-
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+@FunctionalInterface
+interface IngresoDatos {List<String> obtenerDatos(String tipoDato, int cantidad);}
+
+@FunctionalInterface
+interface GeneradorNotas {List<Double> generarNotas();}
+
 public class Punto12 {
     public static void main(String[] args) {
-        // Generamos los nombres y apellidos
-        List<String> nombres = IntStream.range(1, 26) // En teoria de conjuntos 1 cerrado, 26 abierto.
-                .mapToObj(i -> "Nombre " + i )
+        Scanner scanner = new Scanner(System.in);
+
+        IngresoDatos ingresoDatos = (tipoDato, cantidad) -> IntStream.range(0, cantidad)
+                .mapToObj(i -> {
+                    System.out.print("Ingrese el " + tipoDato + " del estudiante " + (i + 1) + ": ");
+                    return scanner.nextLine();
+                })
                 .collect(Collectors.toList());
 
-        List<String> apellidos = IntStream.range(1, 26)
-                .mapToObj(i -> "Apellido " + i)
+        GeneradorNotas generadorNotas = () -> Stream.generate(() -> Math.random() * 5)
+                .limit(4) // Generamos 4 notas
                 .collect(Collectors.toList());
 
-        // Generamos las notas en el rango de 0 a 5
-        List<List<Double>> notas = IntStream.range(0, 25)
-                .mapToObj(i -> Stream.generate(() -> Math.random() * 5)
-                        .limit(4) // 4 notas
-                        .collect(Collectors.toList()))//  da una lista con las 4 notas de un estudiante.
-                .collect(Collectors.toList()); // crea una lista que tiene una lista que contiene 25 listas de notas
+        int cantidadEstudiantes = 25; // para pruebas usaremos 2
+
+        List<String> nombres = ingresoDatos.obtenerDatos("nombre", cantidadEstudiantes);
+        List<String> apellidos = ingresoDatos.obtenerDatos("apellido", cantidadEstudiantes);
+        List<List<Double>> notas = IntStream.range(0, cantidadEstudiantes)
+                .mapToObj(i -> generadorNotas.generarNotas())
+                .collect(Collectors.toList());
 
         // Calculamos y mostramos los resultados
-        IntStream.range(0, 25)
+        IntStream.range(0, cantidadEstudiantes)
                 .mapToObj(i -> {
                     String nombreCompleto = nombres.get(i) + " " + apellidos.get(i);
                     List<Double> notasEstudiante = notas.get(i);
 
-                    // Redondear cada nota a 2 decimales
+                    // Convertimos las notas a texto y lo redondeamos
                     String notasTexto = notasEstudiante.stream()
-                            .map(n -> redondear(n))// seguro que esto se puede reemplazar por algo, y usar menos lineas
-                            .collect(Collectors.joining(", "));
-
-                    // Se calcula el promedio
+                            .map(Punto12::redondear)
+                            .collect(Collectors.joining(" - "));
+                    // Calculamos el promedio
                     double promedio = notasEstudiante.stream()
                             .mapToDouble(Double::doubleValue)
                             .average()
                             .orElse(0.0);
-
                     String promedioTexto = redondear(promedio);
-
                     return nombreCompleto + " - Notas: [" + notasTexto + "] - Promedio: " + promedioTexto;
                 })
                 .forEach(System.out::println);
+        scanner.close();
     }
-
-    // pa que se vea bonito, redondeamos, debe alguna manera para meterla dentro ahi, y acortar lineas.
     private static String redondear(double valor) {
-        double redondeado = Math.round(valor * 100.0) / 100.0;
-        return "" + redondeado;
+        return String.format("%.2f", Math.round(valor * 100.0) / 100.0);
     }
 }

@@ -10,9 +10,9 @@ public class Punto8 {
         int maximo = lista.stream()
                 .mapToInt(Integer::intValue)
                 .max()
-                .orElse(0); // si la Lista esta vacía
+                .orElse(-1); // si la Lista esta vacía
 
-        System.out.println(lista);
+        System.out.println("Lista: " + lista);
         System.out.println("Número con valor más alto: " + maximo);
 
         IntStream.range(0, lista.size())

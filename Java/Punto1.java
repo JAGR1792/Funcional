@@ -1,25 +1,36 @@
 package Java;
-
-import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+@FunctionalInterface
+interface IngresoVentas {
+    List<Integer> obtenerVentas();
+}
 
 public class Punto1 {
-
-    private static List<Integer> nuevalista() {
-        return Arrays.asList(100, 200, 300);
-    }
-
-    public void main() {
+    public static void main(String[] args) {
         double sueldobase = 500;
-        List<Integer> Ventas = nuevalista(); // IMPORTANTE, MANEJAR POR SEPARADO LAS LISTAS.
+        IngresoVentas ingresoVentas = () -> {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Ingrese los montos de ventas separados por espacios:");
+            String input = scanner.nextLine();
+            scanner.close();
+            return Stream.of(input.split(" "))
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toList());
+        };
 
-        double comisiones = Ventas.stream()// Convierte la lista de ventas en un stream
-                .mapToDouble(ventaporcentaje -> ventaporcentaje * 0.1) // obtiene el 10% de cada venta
-                .sum(); // suma el 10% de todas las ventas, para así, quedar una comisión.
+        List<Integer> Ventas = ingresoVentas.obtenerVentas();
+
+        double comisiones = Ventas.stream() // Convertimos la lista en stream
+                .mapToDouble(ventaporcentaje -> ventaporcentaje * 0.1) // Aplicamos el porcentaje de comisión
+                .sum(); // Sumamos las comisiones
 
         double sueldototal = sueldobase + comisiones;
 
         System.out.println("Comisiones $: " + comisiones);
-        System.out.println("Sueldo Total $:" + sueldototal);
+        System.out.println("Sueldo Total $: " + sueldototal);
     }
 }

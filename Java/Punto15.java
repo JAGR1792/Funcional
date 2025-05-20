@@ -1,17 +1,38 @@
 package Java;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+// usa la interfaz ingreso lista.
+
+@FunctionalInterface
+interface FiltradorRango {
+    List<Integer> filtrar(List<Integer> lista, int min, int max);
+}
 public class Punto15 {
-    public static List<Integer> enRango(int min, int max, List<Integer> lista) {
-        return lista.stream()
-                   .filter(n -> n >= min && n <= max)
-                   .collect(Collectors.toList());
-    }
-
     public static void main(String[] args) {
-        List<Integer> entrada = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-        System.out.println(enRango(5, 10, entrada)); // [5, 6, 7, 8, 9, 10]
+        Scanner scanner = new Scanner(System.in);
+        IngresoLista ingresoLista = () -> { // literalmente se repetira en todos, gracias por todo ingreso lista.
+            System.out.println("Ingrese los números separados por espacios:");
+            return Stream.of(scanner.nextLine().split(" "))
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toList());
+        };
+
+        List<Integer> entrada = ingresoLista.obtenerLista();
+        System.out.println("Ingrese el rango mínimo:");
+        int min = scanner.nextInt();
+        System.out.println("Ingrese el rango máximo:");
+        int max = scanner.nextInt();
+        scanner.close();
+
+
+        FiltradorRango filtrador = (lista, limiteInferior, limiteSuperior) -> lista.stream()
+                .filter(n -> n >= limiteInferior && n <= limiteSuperior)
+                .collect(Collectors.toList());
+
+        System.out.println("Números en rango [" + min + " - " + max + "]: " + filtrador.filtrar(entrada, min, max));
     }
 }

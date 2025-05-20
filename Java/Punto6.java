@@ -1,5 +1,4 @@
 package Java;
-
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ public class Punto6 {
         System.out.print("Ingrese longitud del arreglo: ");
         int n = scanner.nextInt();
 
-        // Generar lista con números aleatorios usando el paradigma funcional
+
         List<Integer> lista = Stream.generate(() -> new Random().nextInt(100)) // Números aleatorios entre 0 y 99
                 .limit(n)
                 .collect(Collectors.toList());
