@@ -8,7 +8,7 @@ public class Punto9 {
 
     public static List<Integer> nuevaLista() {
         Random random = new Random();
-        return new Random().ints(16, 1, 101)  // números al alzar
+        return new Random().ints(16, 1, 101)  // números al azar
                 .boxed()
                 .collect(Collectors.toList());
     }
