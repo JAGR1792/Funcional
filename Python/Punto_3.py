@@ -1,9 +1,9 @@
 from functools import reduce
 # Lista de notas del estudiante
-notas=[4,4,3]
+notas=list(map(lambda elemento:float(input(f"Ingrese su nota {elemento+1}: ")),range(3)))
 # Notas del examen final y trabajo final
-examen_final=5
-trabajo_final=4
+examen_final=float(input("Ingrese la nota de su examen final"))
+trabajo_final=float(input("Ingrese la nota de su trabajo final"))
 # Se calcula el promedio de las notas parciales del estudiantes
 notas_parciales=reduce(lambda acumulador=0,elemento=0:acumulador+elemento,notas)/len(notas)
 # Se calcula la nota final teniendo en cuenta los respectivos porcentajes
