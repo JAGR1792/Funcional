@@ -2,7 +2,8 @@
 from datetime import date
 
 # Se crea una fecha de nacimiento
-fecha_nacimiento = date(2007, 12, 4)
+fecha_nacimiento = input("Ingrese su fecha de nacimiento (aaaa-mm-dd): ")
+fecha_nacimiento = date.fromisoformat(fecha_nacimiento)
 
 # Se obtiene la fecha actual
 fecha_actual = date.today()
